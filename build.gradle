@@ -1,0 +1,51 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.3'
+	id 'io.spring.dependency-management' version '1.1.3'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//JDBC: JAVA-DB 연결 인터페이스
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	//mybatis: DB 프레임워크
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+	//mysql 연결
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	//스프링 웹
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//lombok: Getter&Setter 자동 생성
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	//devtools: 개발도구
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//Test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//톰캣
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	//JSP서블렛
+	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'
+	//Mail
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	//파일 업로드
+	implementation 'commons-fileupload:commons-fileupload:1.4'
+	
+	//스프링 시큐리티
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+    //implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
