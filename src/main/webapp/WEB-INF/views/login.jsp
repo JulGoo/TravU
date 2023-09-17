@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,7 +26,7 @@
                                         <form action="login.do" method="post">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" name="userID" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
+                                                <label for="inputEmail">ID</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputPassword" name="userPW" type="password" placeholder="Password" />

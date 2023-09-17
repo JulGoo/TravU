@@ -7,20 +7,24 @@ import com.main.TravU.mapper.IUserMapper;
 
 @Service
 public class UserService {
-	
+
 	private IUserMapper mapper;
-	
+
 	@Autowired
 	public UserService(IUserMapper mapper) {
 		this.mapper = mapper;
 	}
-	
-	public boolean getuserPW(String userID, String userPW) {
+
+	public int getuserPW(String userID, String userPW) {
 		String pw = mapper.getuserPW(userID);
-		if (pw.equals(userPW)) {
-			return true;
+		if (pw == null) {
+			return 0;
+		} else if (!pw.equals(userPW)) {
+			return 1;
+		} else if (pw.equals(userPW)) {
+			return 2;
 		} else {
-			return false;
+			return 3;
 		}
 	}
 }
