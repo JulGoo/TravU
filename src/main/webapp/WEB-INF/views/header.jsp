@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -41,13 +42,14 @@
 		<!-- Navbar-->
 		<%
 		String userID = (String) session.getAttribute("userID");
+							
 		//로그인 전
 		if (userID == null) {
 		%>
 		<nav class="login">
 			<div class="loginregister">
-				<a href="login.do" class="loginregister">로그인</a> <a
-					href="register.do" class="loginregister">회원가입</a>
+				<a href="/login.do" class="loginregister">로그인</a> <a
+					href="/register.do" class="loginregister">회원가입</a>
 			</div>
 		</nav>
 
@@ -65,7 +67,7 @@
 					<li><a class="dropdown-item" href="#!">설정</a></li>
 					<li><a class="dropdown-item" href="#!">마이페이지</a></li>
 					<li><hr class="dropdown-divider" /></li>
-					<li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
+					<li><a class="dropdown-item" href="/logout.do">로그아웃</a></li>
 				</ul></li>
 		</ul>
 		<%
@@ -183,7 +185,7 @@
 
 
 						<div class="sb-sidenav-menu-heading">Q&A</div>
-						<a class="nav-link" href="QnA.do">
+						<a class="nav-link" href="/board/list/QnA.do">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-chart-area"></i>
 							</div> 질문게시판

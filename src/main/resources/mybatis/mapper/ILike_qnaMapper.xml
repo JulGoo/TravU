@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.main.TravU.mapper.qna.ILike_qnaMapper">
+	<insert id="likeUp"
+		parameterType="com.main.TravU.dto.qna.Like_qnaDTO">
+		INSERT INTO like_qna (no, userID) VALUES
+		(
+		#{no},
+		#{userID}
+		)
+	</insert>
+
+	<delete id="likeDown"
+		parameterType="com.main.TravU.dto.qna.Like_qnaDTO">
+		DELETE
+		FROM like_qna
+		WHERE userID = #{userID}
+		AND no = #{no}
+	</delete>
+
+	<select id="doubleCheck" parameterType="com.main.TravU.dto.qna.Like_qnaDTO" resultType="int">
+		SELECT
+		COUNT(*)
+		FROM like_qna
+		WHERE no = #{no}
+		AND userID = #{userID}
+	</select>
+	
+	<select id="likeC" parameterType="int" resultType="int">
+		select COUNT(*)
+		FROM like_qna
+		WHERE no = #{no}
+	</select>
+</mapper>

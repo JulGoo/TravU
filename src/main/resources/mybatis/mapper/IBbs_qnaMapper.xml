@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.main.TravU.mapper.qna.IBbs_qnaMapper">
+	<insert id="insertBbs"
+		parameterType="com.main.TravU.dto.qna.Bbs_qnaDTO">
+		INSERT INTO bbs_qna
+		(no, title, userID, viewC,
+		content)
+		VALUES
+		(
+		#{no},
+		#{title},
+		#{userID},
+		#{viewC},
+		#{content}
+		)
+	</insert>
+
+	<select id="getList"
+		resultType="com.main.TravU.dto.qna.Bbs_qnaDTO">
+		SELECT A.*, COUNT(B.userID) AS 'likeC'
+		FROM bbs_qna AS A
+		LEFT JOIN
+		like_qna AS B
+		ON A.no = B.no
+		WHERE A.available = 1
+		GROUP BY A.no
+	</select>
+
+	<insert id="saveAll" parameterType="java.util.List">
+		INSERT INTO file_qna VALUES
+		(
+		#{fileno},
+		#{bbsno},
+		#{origin},
+		#{save},
+		#{size},
+		#{available}
+		)
+	</insert>
+
+	<select id="viewBbs" parameterType="int"
+		resultType="com.main.TravU.dto.qna.Bbs_qnaDTO">
+		SELECT A.*, COUNT(B.userID) AS 'likeC'
+		FROM bbs_qna AS A
+		LEFT JOIN like_qna AS B
+		ON A.no = B.no
+		WHERE A.no = #{no}
+		GROUP BY A.no
+	</select>
+
+	<update id="viewC" parameterType="int">
+		UPDATE bbs_qna
+		SET viewC = viewC+1 
+		WHERE no = #{no}
+	</update>
+	
+	<update id="update" parameterType="com.main.TravU.dto.qna.Bbs_qnaDTO">
+		UPDATE bbs_qna
+		SET title = #{title}, content = #{content}
+		WHERE no = #{no}
+	</update>
+	
+	<update id="delete" parameterType="int">
+		UPDATE bbs_qna
+		SET available = 0
+		WHERE no = #{no}
+	</update>
+</mapper>

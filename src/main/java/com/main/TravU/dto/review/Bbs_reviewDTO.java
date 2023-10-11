@@ -1,4 +1,4 @@
-package com.main.TravU.dto;
+package com.main.TravU.dto.review;
 
 import lombok.Getter;
 import lombok.Setter;

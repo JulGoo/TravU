@@ -1,7 +1,5 @@
 package com.main.TravU.controller;
 
-import java.io.PrintWriter;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,20 +40,25 @@ public class UserController {
 			request.setAttribute("msg", "아이디가 존재하지 않습니다.");
 			request.setAttribute("url", "login.do");
 			return "alert";
+			//request.setAttribute("msg", 0);
 		} else if (login_yn == 1) {
 			request.setAttribute("msg", "아이디와 비밀번호가 일치하지 않습니다.");
 			request.setAttribute("url", "login.do");
 			return "alert";
+			//request.setAttribute("msg", 1);
 		} else if (login_yn == 2) {
 			session.setAttribute("userID", userID);
 			request.setAttribute("msg", "로그인되었습니다.");
 			request.setAttribute("url", "/");
 			return "alert";
+			//request.setAttribute("msg", 2);
 		} else {
 			request.setAttribute("msg", "database error.");
 			request.setAttribute("url", "login.do");
 			return "alert";
+			//request.setAttribute("msg", 3);
 		}
+		//return "login";
 	}
 
 	// 로그아웃
