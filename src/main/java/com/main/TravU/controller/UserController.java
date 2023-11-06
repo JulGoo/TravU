@@ -48,10 +48,11 @@ public class UserController {
 			//request.setAttribute("msg", 1);
 		} else if (login_yn == 2) {
 			session.setAttribute("userID", userID);
-			request.setAttribute("msg", "로그인되었습니다.");
-			request.setAttribute("url", "/");
-			return "alert";
+//			request.setAttribute("msg", "로그인되었습니다.");
+//			request.setAttribute("url", "/");
+//			return "alert";
 			//request.setAttribute("msg", 2);
+			return "index";
 		} else {
 			request.setAttribute("msg", "database error.");
 			request.setAttribute("url", "login.do");

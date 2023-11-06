@@ -11,17 +11,12 @@ public class File_qnaDTO {
 	private int bbsno;
 	private String origin;
 	private String save;
-	private int size;
-	private int available;
+	private long size;
 	
 	@Builder
-	public File_qnaDTO(String origin, String save, int size) {
+	public File_qnaDTO(String origin, String save, long size) {
 		this.origin = origin;
 		this.save = save;
 		this.size = size;
-	}
-	
-	public void setBbsno(int bbsno) {
-		this.bbsno = bbsno; 
 	}
 }

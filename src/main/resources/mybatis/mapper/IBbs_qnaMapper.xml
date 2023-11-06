@@ -6,11 +6,10 @@
 	<insert id="insertBbs"
 		parameterType="com.main.TravU.dto.qna.Bbs_qnaDTO">
 		INSERT INTO bbs_qna
-		(no, title, userID, viewC,
+		(title, userID, viewC,
 		content)
 		VALUES
 		(
-		#{no},
 		#{title},
 		#{userID},
 		#{viewC},
@@ -28,18 +27,6 @@
 		WHERE A.available = 1
 		GROUP BY A.no
 	</select>
-
-	<insert id="saveAll" parameterType="java.util.List">
-		INSERT INTO file_qna VALUES
-		(
-		#{fileno},
-		#{bbsno},
-		#{origin},
-		#{save},
-		#{size},
-		#{available}
-		)
-	</insert>
 
 	<select id="viewBbs" parameterType="int"
 		resultType="com.main.TravU.dto.qna.Bbs_qnaDTO">
@@ -68,4 +55,8 @@
 		SET available = 0
 		WHERE no = #{no}
 	</update>
+
+	<select id="getNo" resultType="int">
+		SELECT no FROM bbs_qna WHERE userID = #{userID} ORDER BY no DESC LIMIT 1;
+	</select>
 </mapper>

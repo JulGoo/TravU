@@ -19,9 +19,10 @@ public class Bbs_qnaService {
 	}
 	
 	//게시글 입력
-	public void insertBbs(Bbs_qnaDTO bqdto) {
+	public int insertBbs(Bbs_qnaDTO bqdto) {
 		mapper.insertBbs(bqdto);
-	}
+		return mapper.getNo(bqdto.getUserID());
+    }
 	
 	//게시글 목록 불러오기
 	public ArrayList<Bbs_qnaDTO> getList(){
