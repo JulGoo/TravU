@@ -76,6 +76,11 @@ public class Bbs_qnaController {
 		Like_qnaDTO lqdto = new Like_qnaDTO();
 		lqdto.setNo(bqdto.getNo());
 
+		//
+		List<File_qnaDTO> fqdto = new ArrayList<>();
+		fqdto = fservice.fileBybbsno(no);
+		//
+
 		String id = (String) session.getAttribute("userID");
 		lqdto.setUserID(id);
 
@@ -90,6 +95,7 @@ public class Bbs_qnaController {
 
 		mv.addObject("bqdto", bqdto);
 		mv.addObject("check", check);
+		mv.addObject("fqdto", fqdto);
 		mv.setViewName("view_qna");
 		return mv;
 	}

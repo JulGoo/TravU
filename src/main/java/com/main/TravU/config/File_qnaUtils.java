@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @Component
 public class File_qnaUtils {
-    private final String uploadPath = Paths.get("C:", "Users", "yrrud", "OneDrive", "바탕 화면", "2-2", "SW", "upload_files").toString();
+    private final String uploadPath = Paths.get("C:", "Users", "yrrud", "OneDrive", "바탕 화면", "2-2", "SW", "TravU", "src", "main", "resources", "static", "upload_files").toString();
 
     //다중 파일 업로드
     public List<File_qnaDTO> uploadFiles(final List<MultipartFile> multipartFiles){
@@ -37,10 +37,8 @@ public class File_qnaUtils {
         }
         
         String saveName = SaveN(multipartFile.getOriginalFilename());
-        String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
-        String uploadPath = getUploadPath(today) + File.separator + saveName;
+        String uploadPath = getUploadPath() + File.separator + saveName;
         File uploadFile  = new File(uploadPath);
-
         try{
             multipartFile.transferTo(uploadFile);
         } catch (IOException e) {

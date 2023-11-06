@@ -1,11 +1,11 @@
 package com.main.TravU.dto.qna;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class File_qnaDTO {
 	private int fileno;
 	private int bbsno;
@@ -19,4 +19,5 @@ public class File_qnaDTO {
 		this.save = save;
 		this.size = size;
 	}
+
 }

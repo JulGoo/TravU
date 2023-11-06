@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.main.TravU.mapper.qna.IFile_qnaMapper">
-    <insert id="saveAll" parameterType="java.util.List">
+    <insert id="saveAll" parameterType="com.main.TravU.dto.qna.File_qnaDTO">
         INSERT INTO file_qna
             (bbsno, origin, save, size)
         VALUES (#{bbsno},
@@ -17,7 +17,6 @@
         FROM file_qna
         WHERE available = 1
           AND bbsno = #{bbsno}
-        ORDER BY bbsno
     </select>
 
     <select id="fileByfileno" parameterType="list" resultType="com.main.TravU.dto.qna.File_qnaDTO">

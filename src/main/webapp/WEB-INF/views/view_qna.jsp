@@ -3,9 +3,11 @@
 <%@ include file="header.jsp"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.main.TravU.dto.qna.Bbs_qnaDTO"%>
+<%@ page import="com.main.TravU.dto.qna.File_qnaDTO" %>
 
 <%
 Bbs_qnaDTO bqdto = (Bbs_qnaDTO) request.getAttribute("bqdto");
+List<File_qnaDTO> fqdto = (ArrayList)request.getAttribute("fqdto");
 %>
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
@@ -44,6 +46,16 @@ Bbs_qnaDTO bqdto = (Bbs_qnaDTO) request.getAttribute("bqdto");
 			<div class="container">
 				<br>
 				<h5><%=bqdto.getContent()%></h5>
+
+				<div>
+					<%
+						for(int i=0; i<fqdto.size(); i++) {
+					%>
+					<img src="/upload_files/<%=fqdto.get(i).getSave() %>" width="200px">
+					<%
+						}
+					%>
+				</div>
 
 				<div align="right">
 					<input type="text" id="userID" style="display: none;"

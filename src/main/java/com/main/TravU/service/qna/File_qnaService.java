@@ -22,8 +22,9 @@ public class File_qnaService {
         }
         for (File_qnaDTO file:files){
             file.setBbsno(bbsno);
+            mapper.saveAll(file);
         }
-        mapper.saveAll(files);
+
     }
 
     public List<File_qnaDTO> fileBybbsno(final int bbsno){
