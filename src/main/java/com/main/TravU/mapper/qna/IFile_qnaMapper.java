@@ -7,9 +7,10 @@ import java.util.List;
 
 @Mapper
 public interface IFile_qnaMapper {
+    //파일 저장
     void saveAll(File_qnaDTO files);
 
-    //파일 조회 - 게시글 번호로
+    //게시글 번호로 파일 조회
     List<File_qnaDTO> fileBybbsno(int bbsno);
 
     //파일 조회 - 파일 번호로

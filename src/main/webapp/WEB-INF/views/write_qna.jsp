@@ -13,7 +13,7 @@
 				<li class="breadcrumb-item active">질문해주세요!!</li>
 			</ol>
 			<form method="post" action="/board/save/QnA.do" autocomplete="off" enctype="multipart/form-data">
-				<table class="table table-bordered">
+				<table class="table table-bordered customize">
 					<tr>
 						<th>제목</th>
 						<td><input type="text" class="form-control"
@@ -21,7 +21,7 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea class="form-control" placeholder="내용을 적어주세요."
+						<td><textarea id="summernote" class="form-control" placeholder="내용을 적어주세요."
 								name="content" maxlength="1024" value="content"></textarea></td>
 					</tr>
 					<tr>
@@ -45,7 +45,32 @@
 			</form>
 		</div>
 	</main>
-</div>
+
 <script type="text/javascript" src="/js/file.js"></script>
+<script>
+	$('#summernote').summernote({
+		height: 400,                 // 에디터 높이
+		minHeight: null,             // 최소 높이
+		maxHeight: null,             // 최대 높이
+		focus: false,                  // 에디터 로딩후 포커스를 맞출지 여부
+		lang: "ko-KR",					// 한글 설정
+		placeholder: '최대3000자까지 쓸 수 있습니다'	,//placeholder 설정
+		toolbar: [
+			// [groupName, [list of button]]
+			['fontname', ['fontname']],
+			['fontsize', ['fontsize']],
+			['color', ['color']],
+			['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+			['para', ['ul', 'ol', 'paragraph']],
+			['height', ['height']]
+		],
+		fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+		fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+
+	});
+</script>
 
 <%@ include file="footer.jsp"%>
+
+
+

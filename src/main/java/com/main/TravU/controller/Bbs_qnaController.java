@@ -73,13 +73,14 @@ public class Bbs_qnaController {
 
 		Bbs_qnaDTO bqdto = new Bbs_qnaDTO();
 		bqdto = bservice.viewBbs(no);
+
+		//좋아요
 		Like_qnaDTO lqdto = new Like_qnaDTO();
 		lqdto.setNo(bqdto.getNo());
 
-		//
+		//파일
 		List<File_qnaDTO> fqdto = new ArrayList<>();
 		fqdto = fservice.fileBybbsno(no);
-		//
 
 		String id = (String) session.getAttribute("userID");
 		lqdto.setUserID(id);

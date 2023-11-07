@@ -12,10 +12,12 @@ ArrayList<Bbs_qnaDTO> bqdto = (ArrayList<Bbs_qnaDTO>) request.getAttribute("list
 <div id="layoutSidenav_content">
 	<main>
 		<div class="container-fluid px-4">
+			<div class="container">
 			<h1 class="mt-4">Q&A</h1>
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">질문있어요! 답변해주세요</li>
 			</ol>
+			</div>
 			<br>
 			<div class="container">
 				<div class="row">
@@ -56,15 +58,15 @@ ArrayList<Bbs_qnaDTO> bqdto = (ArrayList<Bbs_qnaDTO>) request.getAttribute("list
 				<input type="button" class="btn btn-dark" value="글쓰기" id="write"
 					onClick="location.href='/board/write/QnA.do'">
 			</div>
-
+			<br>
+			<br>
 
 		</div>
 
 	</main>
 	<%@ include file="footer.jsp"%>
 
-</div>
-
+<%--/div footer에서 닫음--%>
 
 </body>
 </html>
