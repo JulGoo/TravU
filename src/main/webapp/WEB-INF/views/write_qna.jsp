@@ -31,7 +31,7 @@
 								<div>
 									<div class="file_input">
 										<input type="text" readonly />
-											<input type="file" name="files" onchange="selectFile(this);" />
+										<input type="file" name="files" onchange="selectFile(this);" />
 									</div>
 									<button type="button" onclick="removeFile(this);" class="btns del_btn"><span>삭제</span></button>
 									<button type="button" onclick="addFile();" class="btns fn_add_btn"><span>파일 추가</span></button>

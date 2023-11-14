@@ -51,7 +51,7 @@ List<File_qnaDTO> fqdto = (ArrayList)request.getAttribute("fqdto");
 					<%
 						for(int i=0; i<fqdto.size(); i++) {
 					%>
-					<img src="/upload_files/<%=fqdto.get(i).getSave() %>" width="200px">
+					<img src="/upload_files/<%=fqdto.get(i).getSave() %>" width="400px">
 					<%
 						}
 					%>

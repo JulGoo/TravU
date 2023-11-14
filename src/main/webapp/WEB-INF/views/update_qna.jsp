@@ -2,11 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 <%@ page import="com.main.TravU.dto.qna.Bbs_qnaDTO"%>
+<%@ page import="com.main.TravU.dto.qna.File_qnaDTO" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 
 <meta charset="UTF-8" />
 
 <%
 Bbs_qnaDTO bqdto = (Bbs_qnaDTO) request.getAttribute("bqdto");
+List<File_qnaDTO> fqdto = (ArrayList)request.getAttribute("fqdto");
 %>
 
 <div id="layoutSidenav_content">
@@ -16,7 +20,7 @@ Bbs_qnaDTO bqdto = (Bbs_qnaDTO) request.getAttribute("bqdto");
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">질문해주세요!!</li>
 			</ol>
-			<form method="post" action="/board/save/QnA.do" autocomplete="off" enctype="multipart/form-data">
+			<form method="post" action="/board/update/QnA.do" autocomplete="off" enctype="multipart/form-data">
 				<table class="table table-bordered">
 					<tr>
 						<th>제목</th>
@@ -40,6 +44,18 @@ Bbs_qnaDTO bqdto = (Bbs_qnaDTO) request.getAttribute("bqdto");
 									<button type="button" onclick="removeFile(this);" class="btns del_btn"><span>삭제</span></button>
 									<button type="button" onclick="addFile();" class="btns fn_add_btn"><span>파일 추가</span></button>
 								</div>
+							</div>
+							<div id="fileProcess">
+								<%
+									for(int i=0; i<fqdto.size(); i++) {
+								%>
+								<img src="/upload_files/<%=fqdto.get(i).getSave() %>" id="<%= i%>" width="400px">
+								<button type="button" onclick="deleteButton(this, <%= i%>, <%= fqdto.get(i).getFileno()%>)" id="deleteFile">삭제</button>
+
+								<br><br>
+								<%
+									}
+								%>
 							</div>
 						</td>
 					</tr>

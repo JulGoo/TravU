@@ -36,7 +36,7 @@ function addFile() {
     document.querySelector('.file_list').appendChild(fileDiv);
 }
 
-// 파일 삭제
+// 파일 등록 삭제
 function removeFile(element) {
     const fileAddBtn = element.nextElementSibling;
     if (fileAddBtn) {
@@ -45,4 +45,20 @@ function removeFile(element) {
         return false;
     }
     element.parentElement.remove();
+}
+
+// 파일 수정 삭제
+function deleteButton(element, num, fileNo){
+    const deleteF = document.querySelector('#deleteFile');
+    deleteF.remove();
+    const imgNum = document.getElementById(num);
+    imgNum.remove();
+
+    var a = document.createElement("input");
+    a.setAttribute("type", "text");
+    a.setAttribute("style", "display:none;");
+    a.setAttribute("name", "deleteIt")
+    a.setAttribute("value", fileNo);
+    document.getElementById("fileProcess").appendChild(a);
+
 }

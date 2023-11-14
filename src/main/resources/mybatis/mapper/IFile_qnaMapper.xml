@@ -16,18 +16,7 @@
         SELECT *
         FROM file_qna
         WHERE available = 1
-          AND bbsno = #{bbsno}
-    </select>
-
-    <select id="fileByfileno" parameterType="list" resultType="com.main.TravU.dto.qna.File_qnaDTO">
-        SELECT *
-        FROM file_qna
-        WHERE available = 1
-        AND fileno IN
-        <foreach item="fileno" collection="list" open="(" separator="," close=")">
-            #{fileno}
-        </foreach>
-        ORDER BY fileno
+        AND bbsno = #{bbsno}
     </select>
 
     <delete id="deleteFile" parameterType="list">

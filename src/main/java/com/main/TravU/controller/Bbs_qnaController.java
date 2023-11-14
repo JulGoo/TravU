@@ -105,12 +105,19 @@ public class Bbs_qnaController {
 	@GetMapping("/update/QnA.do")
 	public String updates(int no, Model m) {
 		Bbs_qnaDTO bqdto = bservice.viewBbs(no);
+		List<File_qnaDTO> fqdto = fservice.fileBybbsno(no);
 		m.addAttribute("bqdto", bqdto);
+		m.addAttribute("fqdto", fqdto);
 		return "update_qna";
 	}
-	
+
+	//게시글 수정 등록
 	@PostMapping("/update/QnA.do")
-	public String update(Bbs_qnaDTO bqdto, RedirectAttributes redirect) {
+	public String update(Bbs_qnaDTO bqdto, RedirectAttributes redirect, List<Integer> fileNoList) {
+		if(!fileNoList.isEmpty()) {
+			fservice.deleteFile(fileNoList);
+		}
+
 		bservice.update(bqdto);
 		redirect.addAttribute("no", bqdto.getNo());
 		return "redirect:/board/view/QnA.do";
