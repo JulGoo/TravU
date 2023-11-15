@@ -54,11 +54,11 @@ function deleteButton(element, num, fileNo){
     const imgNum = document.getElementById(num);
     imgNum.remove();
 
-    var a = document.createElement("input");
-    a.setAttribute("type", "text");
-    a.setAttribute("style", "display:none;");
-    a.setAttribute("name", "deleteIt")
-    a.setAttribute("value", fileNo);
-    document.getElementById("fileProcess").appendChild(a);
+    var deleteFN = document.createElement("input");
+    deleteFN.setAttribute("type", "number");
+    deleteFN.setAttribute("style", "display:none;");
+    deleteFN.setAttribute("name", "deleteIt")
+    deleteFN.setAttribute("value", fileNo);
+    document.getElementById("fileProcess").appendChild(deleteFN);
 
 }

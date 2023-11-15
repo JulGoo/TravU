@@ -46,6 +46,7 @@ List<File_qnaDTO> fqdto = (ArrayList)request.getAttribute("fqdto");
 								</div>
 							</div>
 							<div id="fileProcess">
+
 								<%
 									for(int i=0; i<fqdto.size(); i++) {
 								%>
