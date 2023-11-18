@@ -9,4 +9,6 @@ public class PlanController {
     public String planList(){
         return "travel_plan";
     }
+
+
 }
