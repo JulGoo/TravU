@@ -32,7 +32,7 @@ public class Bbs_qnaController {
     private final File_qnaService fservice;
     private final File_qnaUtils futils;
 
-    // 질문 게시글 보기
+    // 질문 게시글 목록 보기
     @GetMapping("/list/QnA.do")
     public ModelAndView bbs_qna() {
         ModelAndView mv = new ModelAndView();

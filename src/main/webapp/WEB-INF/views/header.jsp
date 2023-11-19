@@ -209,13 +209,13 @@
                     </a>
 
                     <div class="sb-sidenav-menu-heading">여행 계획하기</div>
-                    <a class="nav-link" href="/travel_plan.do">
+                    <a class="nav-link" href="/travel/plan/list.do">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-chart-area"></i>
                         </div>
                         일정 만들기
                     </a>
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="tables.jsp">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-table"></i>
                         </div>

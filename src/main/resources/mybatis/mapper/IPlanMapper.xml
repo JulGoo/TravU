@@ -3,4 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.main.TravU.mapper.IPlanMapper">
-    <
+    <insert id="insertPlan" parameterType="com.main.TravU.dto.PlanCardDTO">
+        INSERT INTO plan_card
+        (travelNo, travelName, userID, startDate, endDate, imgName)
+        VALUES
+            (
+             #{planNo},
+             #{planName},
+             #{userID},
+             #{startDate},
+             #{endDate},
+             #{imgName}
+            )
+    </insert>
+
+    <select id="getPlanCardList" resultType="com.main.TravU.dto.PlanCardDTO" parameterType="String">
+        SELECT * FROM plan_card where userID = #{userID}
+    </select>
+</mapper>
