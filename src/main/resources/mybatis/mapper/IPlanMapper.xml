@@ -3,12 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.main.TravU.mapper.IPlanMapper">
-    <insert id="insertPlan" parameterType="com.main.TravU.dto.PlanCardDTO">
+    <!--  여행 카드 작성  -->
+    <insert id="insertPlanCard" parameterType="com.main.TravU.dto.PlanCardDTO">
         INSERT INTO plan_card
-        (travelNo, travelName, userID, startDate, endDate, imgName)
+        (planName, userID, startDate, endDate, imgName)
         VALUES
             (
-             #{planNo},
              #{planName},
              #{userID},
              #{startDate},
@@ -17,7 +17,9 @@
             )
     </insert>
 
+    <!--  여행 카드 보기  -->
     <select id="getPlanCardList" resultType="com.main.TravU.dto.PlanCardDTO" parameterType="String">
         SELECT * FROM plan_card where userID = #{userID}
     </select>
+
 </mapper>

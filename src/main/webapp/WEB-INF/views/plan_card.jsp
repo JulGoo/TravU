@@ -10,12 +10,8 @@
 
 <%
     ArrayList<PlanCardDTO> planCardDTO = (ArrayList<PlanCardDTO>) request.getAttribute("cards");
-    if (planCardDTO == null) {
-        PrintWriter errOut = response.getWriter();
-        errOut.println("<script>alert('hihi');</script>");
-        errOut.close();
-    }
 %>
+
 
 <div id="layoutSidenav_content">
 
@@ -36,7 +32,7 @@
                     <div class="profile-card-2" style="height: 300px; width: 400px"
                          onclick="location.href='plan?no=<%=planCardDTO.get(i).getPlanNo()%>'">
                         <img
-                                src="/upload_files/cd2db071e796481cbdb334dc4bdb0651.png"
+                                src="/profile_img/<%=planCardDTO.get(i).getImgName() %>"
                                 class="img img-responsive" style="height: 300px; width: 400px">
                         <div class="profile-name"
                              style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"><%=planCardDTO.get(i).getPlanName()%>
@@ -50,20 +46,23 @@
                 <%
                     }
                 %>
-
-                <%-- 카드 추가 --%>
-                <div class="col-md-4" onclick="addCard();"
-                     style="height: 310px; width: 410px; margin-right: 50px; margin-bottom: 50px;">
-                    <div class="profile-card-2" style="height: 300px; width: 400px; background-color: rgb(253,194,190); text-align: center">
-                        <img
-                                src="/img/plus_skinny.png"
-                                class="img img-responsive" style="height: 200px; width: 200px; margin-top: 50px">
-                    </div>
-                </div>
-
             </div>
         </div>
+
+        <%-- 카드 추가 --%>
+        <div class="col-md-4" onclick="addCard();"
+             style="position: fixed; width: 100px; height: 100px; bottom: 60px; right: 50px; margin: 35px 25px;">
+            <div class="profile-card-2"
+                 style="height: 100px; width: 100px; background-color: rgb(253,194,190); text-align: center">
+                <img
+                        src="/img/plus_skinny.png"
+                        class="img img-responsive" style="height: 50px; width: 50px; margin-top: 25px">
+            </div>
+        </div>
+
     </div>
 
     <script type="text/javascript" src="/js/plan.js"></script>
+    <script src="/js/profileimg.js"></script>
+
 <%@ include file="footer.jsp" %>

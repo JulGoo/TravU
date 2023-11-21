@@ -10,6 +10,7 @@ import java.sql.Date;
 public class PlanCardDTO {
     private int planNo;
     private String planName;
+    private String userID;
     private Date startDate;
     private Date endDate;
     private String imgName;

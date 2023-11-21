@@ -7679,6 +7679,7 @@ textarea.form-control-lg {
 
 .mt-4 {
   margin-top: 1.5rem !important;
+  font-weight: bold;
 }
 
 .mt-4-customize
@@ -11486,7 +11487,7 @@ body {
 .profile-card-2 .profile-name {
   position: absolute;
   left: 30px;
-  bottom: 70px;
+  bottom: 50px;
   font-size: 30px;
   color: #FFF;
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
@@ -11504,7 +11505,7 @@ body {
 
 .profile-card-2 .profile-username {
   position: absolute;
-  bottom: 50px;
+  bottom: 25px;
   left: 30px;
   color: #FFF;
   font-size: 20px;
