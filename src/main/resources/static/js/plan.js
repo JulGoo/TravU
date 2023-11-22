@@ -5,7 +5,7 @@ function addCard(){
         <div class="profile-card-2" style="height: 300px; width: 400px">
         <form method="post" action="/travel/plan_card/save.do" autocomplete="off" enctype="multipart/form-data">
             <img id="preview" name="imgName"
-            src="/profile_img/default.jpg"
+            src="/planCardImg/default.jpg"
             class="img img-responsive" style="height: 300px; width: 400px">
             <div class="file_input" style="position: absolute; bottom: 180px; left: 30px;">
                 <input type="text" readonly />

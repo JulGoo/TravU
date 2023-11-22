@@ -17,8 +17,10 @@ import java.util.UUID;
 
 @Component
 public class File_qnaUtils {
-    private final String uploadPath = Paths.get("C:", "Users", "yrrud", "OneDrive", "바탕 화면", "2-2", "SW", "TravU", "src", "main", "resources", "static", "upload_files").toString();
-    private final String uploadProfilePath = Paths.get("C:", "Users", "yrrud", "OneDrive", "바탕 화면", "2-2", "SW", "TravU", "src", "main", "resources", "static", "profile_img").toString();
+    private final String uploadPath = Paths.get("C:", "Users", "yrrud", "OneDrive",
+            "바탕 화면", "2-2", "SW", "TravU", "src", "main", "resources", "static", "upload_files").toString();
+    private final String uploadPlanCardImgPath = Paths.get("C:", "Users", "yrrud", "OneDrive",
+            "바탕 화면", "2-2", "SW", "TravU", "src", "main", "resources", "static", "planCardImg").toString();
 
     //저장 파일명 생성
     private String SaveN ( final String filename){
@@ -82,16 +84,15 @@ public class File_qnaUtils {
     }
 
     //프로필 이미지 업로드
-    public
-    String uploadProfileFile(final MultipartFile multipartFile) {
+    public String uploadPlanCardImg(final MultipartFile multipartFile) {
         if (!multipartFile.isEmpty()) {
             String saveName = SaveN(multipartFile.getOriginalFilename());
-            String uploadImg = uploadProfilePath + File.separator + saveName;
-            File profileImg = new File(uploadImg);
+            String uploadImg = uploadPlanCardImgPath + File.separator + saveName;
+            File planCardImg = new File(uploadImg);
 
             // 파일 업로드
             try {
-                multipartFile.transferTo(profileImg);
+                multipartFile.transferTo(planCardImg);
             } catch (Exception e) {
                 e.printStackTrace();
             }

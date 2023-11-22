@@ -7,7 +7,7 @@ function fileProcess(input) {
     if(!allowExt.includes(fileType)) {
         alert("허용되지 않는 확장자입니다.");
         $("#file").val('');
-        document.getElementById('preview').src = "/profile_img/default.jpg";
+        document.getElementById('preview').src = "/planCardImg/default.jpg";
         return false;
     }
 
@@ -28,6 +28,6 @@ function fileProcess(input) {
         };
         reader.readAsDataURL(input.files[0]);
     } else {
-        document.getElementById('preview').src = "/profile_img/default.jpg";
+        document.getElementById('preview').src = "/planCardImg/default.jpg";
     }
 }

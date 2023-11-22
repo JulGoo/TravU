@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.main.TravU.dto.PlanCardDTO" %>
-<%@ page import="java.io.Console" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ include file="header.jsp" %>
@@ -30,9 +29,9 @@
                 %>
                 <div class="col-md-4" style="height: 310px; width: 410px; margin-right: 70px; margin-bottom: 50px">
                     <div class="profile-card-2" style="height: 300px; width: 400px"
-                         onclick="location.href='plan?no=<%=planCardDTO.get(i).getPlanNo()%>'">
+                         onclick="location.href='/travel/plan/view.do?no=<%=planCardDTO.get(i).getPlanNo()%>'">
                         <img
-                                src="/profile_img/<%=planCardDTO.get(i).getImgName() %>"
+                                src="/planCardImg/<%=planCardDTO.get(i).getImgName() %>"
                                 class="img img-responsive" style="height: 300px; width: 400px">
                         <div class="profile-name"
                              style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"><%=planCardDTO.get(i).getPlanName()%>
@@ -63,6 +62,6 @@
     </div>
 
     <script type="text/javascript" src="/js/plan.js"></script>
-    <script src="/js/profileimg.js"></script>
+    <script src="/js/planCardImg.js"></script>
 
 <%@ include file="footer.jsp" %>
