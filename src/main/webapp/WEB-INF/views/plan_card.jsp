@@ -29,7 +29,7 @@
                 %>
                 <div class="col-md-4" style="height: 310px; width: 410px; margin-right: 70px; margin-bottom: 50px">
                     <div class="profile-card-2" style="height: 300px; width: 400px"
-                         onclick="location.href='/travel/plan/view.do?no=<%=planCardDTO.get(i).getPlanNo()%>'">
+                         onclick="location.href='/travel/plan/make.do?planNo=<%=planCardDTO.get(i).getPlanNo()%>'">
                         <img
                                 src="/planCardImg/<%=planCardDTO.get(i).getImgName() %>"
                                 class="img img-responsive" style="height: 300px; width: 400px">
@@ -42,6 +42,7 @@
                         </div>
                     </div>
                 </div>
+
                 <%
                     }
                 %>

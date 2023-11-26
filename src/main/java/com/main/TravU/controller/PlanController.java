@@ -2,6 +2,7 @@ package com.main.TravU.controller;
 
 import com.main.TravU.config.File_qnaUtils;
 import com.main.TravU.dto.PlanCardDTO;
+import com.main.TravU.dto.PlanDetailDTO;
 import com.main.TravU.dto.qna.File_qnaDTO;
 import com.main.TravU.service.PlanService;
 import jakarta.servlet.http.HttpSession;
@@ -48,10 +49,6 @@ public class PlanController {
         return "plan_card";
     }
 
-    //여행 계획 보기
-    @GetMapping("/plan/view.do")
-    public String planDetail(Integer planNo) {return "plan_detail";}
-
     //여행 카드 저장
     @PostMapping("/plan_card/save.do")
     public String insertPlanCard(HttpSession session, PlanCardDTO planCardDTO, MultipartFile file){
@@ -61,5 +58,35 @@ public class PlanController {
         service.insertPlanCard(planCardDTO);
 
         return "redirect:/travel/plan/list.do";
+    }
+
+    //세부 여행 계획 만들기
+    @GetMapping("/plan/make.do")
+    public String makePlan(Model model, Integer planNo){
+        PlanCardDTO planCardDTO = service.getPlanCard(planNo);
+        model.addAttribute("planCardDTO", planCardDTO);
+
+        return "plan_make";
+    }
+
+    //세부 여행 계획 저장
+    @PostMapping("/plan/save.do")
+    public String savePlan(PlanDetailDTO planDetailDTO, Integer planNo){
+        planDetailDTO.setPlanNo(planNo);
+        service.insertPlan(planDetailDTO);
+
+        return "redirect:/travel/plan/view.do";
+    }
+
+    //여행 계획 보기
+    @GetMapping("/plan/view.do")
+    public String planDetail(Model model, Integer planNo) {
+        PlanCardDTO planCardDTO = service.getPlanCard(planNo);
+        model.addAttribute("planCardDTO", planCardDTO);
+
+        PlanDetailDTO plan = service.getPlan(planNo);
+        model.addAttribute("plan", plan);
+
+        return "plan_detail";
     }
 }

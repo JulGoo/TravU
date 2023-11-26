@@ -1,7 +1,12 @@
 package com.main.TravU.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.sql.Time;
 
+@Getter
+@Setter
 public class PlanDetailDTO {
     private int seq;
     private int planNo;

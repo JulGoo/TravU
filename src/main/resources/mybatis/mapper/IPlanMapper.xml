@@ -17,9 +17,34 @@
             )
     </insert>
 
-    <!--  여행 카드 보기  -->
+    <!--  모든 여행 카드 보기  -->
     <select id="getPlanCardList" resultType="com.main.TravU.dto.PlanCardDTO" parameterType="String">
         SELECT * FROM plan_card where userID = #{userID}
     </select>
 
+    <!-- 플랜번호로 여행 카드 정보 가져오기  -->
+    <select id="getPlanCard" resultType="com.main.TravU.dto.PlanCardDTO" parameterType="int">
+        SELECT * FROM plan_card where planNo = #{planNo}
+    </select>
+
+    <!--  세부 여행 계획 작성  -->
+    <insert id="insertPlan" parameterType="com.main.TravU.dto.PlanDetailDTO">
+        INSERT INTO plan_detail
+            (planNo, day, place, title, content, startTime, endTime)
+        VALUES
+            (
+                #{planNo},
+                #{day},
+                #{place},
+                #{title},
+                #{content},
+                #{startTime},
+                #{endTime}
+            )
+    </insert>
+
+    <!--  세부 여행 계획 보기  -->
+    <select id="getPlan" resultType="com.main.TravU.dto.PlanDetailDTO" parameterType="int">
+        SELECT * FROM plan_detail where planNo = #{planNo}
+    </select>
 </mapper>
