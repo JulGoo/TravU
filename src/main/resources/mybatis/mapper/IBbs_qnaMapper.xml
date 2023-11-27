@@ -57,6 +57,6 @@
 	</update>
 
 	<select id="getNo" resultType="int">
-		SELECT no FROM bbs_qna WHERE userID = #{userID} ORDER BY no DESC LIMIT 1;
+		SELECT no FROM bbs_qna WHERE userID = #{userID} ORDER BY no DESC LIMIT 1
 	</select>
 </mapper>

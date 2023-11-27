@@ -34,7 +34,7 @@ public class UserController {
 	}
 
 	@PostMapping("login.do")
-	public String login1(String userID, String userPW, HttpSession session, HttpServletRequest request) {
+	public String login(String userID, String userPW, HttpSession session, HttpServletRequest request) {
 		int login_yn = service.getuserPW(userID, userPW);
 		if (login_yn == 0) {
 			request.setAttribute("msg", "아이디가 존재하지 않습니다.");
@@ -52,7 +52,7 @@ public class UserController {
 //			request.setAttribute("url", "/");
 //			return "alert";
 			//request.setAttribute("msg", 2);
-			return "index";
+			return "redirect:/";
 		} else {
 			request.setAttribute("msg", "database error.");
 			request.setAttribute("url", "login.do");

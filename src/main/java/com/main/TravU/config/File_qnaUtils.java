@@ -85,7 +85,7 @@ public class File_qnaUtils {
 
     //프로필 이미지 업로드
     public String uploadPlanCardImg(final MultipartFile multipartFile) {
-        if (!multipartFile.isEmpty()) {
+        if (multipartFile != null && !multipartFile.isEmpty()) {
             String saveName = SaveN(multipartFile.getOriginalFilename());
             String uploadImg = uploadPlanCardImgPath + File.separator + saveName;
             File planCardImg = new File(uploadImg);

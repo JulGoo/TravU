@@ -52,6 +52,9 @@ public class PlanController {
     //여행 카드 저장
     @PostMapping("/plan_card/save.do")
     public String insertPlanCard(HttpSession session, PlanCardDTO planCardDTO, MultipartFile file){
+
+        System.out.println(planCardDTO.toString());
+
         String userID = (String) session.getAttribute("userID");
         planCardDTO.setUserID(userID);
         planCardDTO.setImgName(futils.uploadPlanCardImg(file));
@@ -65,8 +68,6 @@ public class PlanController {
     public String makePlan(Model model, Integer planNo){
         PlanCardDTO planCardDTO = service.getPlanCard(planNo);
         model.addAttribute("planCardDTO", planCardDTO);
-
-
 
         return "plan_make";
     }

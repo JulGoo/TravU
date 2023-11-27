@@ -6,15 +6,14 @@
     <!--  여행 카드 작성  -->
     <insert id="insertPlanCard" parameterType="com.main.TravU.dto.PlanCardDTO">
         INSERT INTO plan_card
-        (planName, userID, startDate, endDate, imgName)
-        VALUES
-            (
-             #{planName},
-             #{userID},
-             #{startDate},
-             #{endDate},
-             #{imgName}
-            )
+            (planName, userID, startDate, endDate, imgName, lat, lng)
+        VALUES (#{planName},
+                #{userID},
+                #{startDate},
+                #{endDate},
+                #{imgName},
+                #{lat},
+                #{lng})
     </insert>
 
     <!--  모든 여행 카드 보기  -->
@@ -30,7 +29,7 @@
     <!--  세부 여행 계획 작성  -->
     <insert id="insertPlan" parameterType="com.main.TravU.dto.PlanDetailDTO">
         INSERT INTO plan_detail
-            (planNo, day, place, title, content, startTime, endTime)
+            (planNo, day, place, title, content, startTime)
         VALUES
             (
                 #{planNo},
@@ -38,8 +37,7 @@
                 #{place},
                 #{title},
                 #{content},
-                #{startTime},
-                #{endTime}
+                #{startTime}
             )
     </insert>
 
@@ -47,4 +45,5 @@
     <select id="getPlan" resultType="com.main.TravU.dto.PlanDetailDTO" parameterType="int">
         SELECT * FROM plan_detail where planNo = #{planNo}
     </select>
+
 </mapper>

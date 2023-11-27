@@ -15,5 +15,4 @@ public class PlanDetailDTO {
     private String title;
     private String content;
     private Time startTime;
-    private Time endTime;
 }

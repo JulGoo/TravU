@@ -1,9 +1,10 @@
 function addCard() {
     const cardDiv = document.createElement('div');
+
     cardDiv.innerHTML = `
     <div class="col-md-4" style="height: 310px; width: 410px; margin-right: 70px; margin-bottom: 50px">
         <div class="profile-card-2" style="height: 300px; width: 400px">
-        <form method="post" action="/travel/plan_card/save.do" autocomplete="off" enctype="multipart/form-data">
+        <form id="cardInfo" name="cardInfo" method="post" action="/travel/plan_card/save.do" autocomplete="off" enctype="multipart/form-data">
             <img id="preview" name="imgName"
             src="/planCardImg/default.jpg"
             class="img img-responsive" style="height: 300px; width: 400px">
@@ -18,14 +19,32 @@ function addCard() {
                  <input type="date" name="startDate"> ~ 
                  <input type="date" name="endDate">
             </div>
-            <button type="submit" name="save" style="position: absolute; bottom: 250px; left: 330px;">저장</button>
+            
+            <div id="testInfo"></div>
+            
+            <button type="button" onclick="submitInfo();" name="save" style="position: absolute; bottom: 250px; left: 330px;">저장</button>
         </form>
         </div>
     </div>
-    <hr>
     `;
+
     document.querySelector('.container').appendChild(cardDiv);
+
+    var map = document.getElementById("map");
+    map.style.visibility = 'visible';
+    cardDiv.appendChild(map);
 }
+
+function submitInfo() {
+    var mapLat = `<input type="number" name="lat" value="${selectedLat}" style="display:none;">`;
+    var mapLng = `<input type="number" name="lng" value="${selectedLng}" style="display:none;">`;
+
+    var formInfo = document.getElementById("testInfo");
+    formInfo.innerHTML = mapLat + mapLng;
+
+    document.cardInfo.submit();
+}
+
 
 // 상세 계획 날짜별 보기
 function showThis(day) {
@@ -39,23 +58,23 @@ function addPlan() {
     const planDiv = document.createElement('div');
     planDiv.innerHTML = `
         <div class="row margin-b-30">
-                                        <div class="col-sm-3 event-info">
-                                                <input type="time" name="startTime">
-                                                <span class="event-hall"><input type="text" name="place"></span>
-                                            </div>
-                                            <div class="col-sm-9 event-detail">
-                                                <h3><input type="text" name="title"></h3>
-                                                <div class="row margin-b-20">
-                                                    <div class="col-sm-10">
-                                                        <p>
-                                                            <textarea type="text" name="content" style="width: 700px; height: 200px"></textarea>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <br>
-`;
+            <div class="col-sm-3 event-info">
+                <input type="time" name="startTime">
+                <span class="event-hall"><input type="text" name="place"></span>
+            </div>
+            <div class="col-sm-9 event-detail">
+                <h3><input type="text" name="title"></h3>
+                    <div class="row margin-b-20">
+                        <div class="col-sm-10">
+                            <p>
+                                <textarea type="text" name="content" style="width: 700px; height: 200px"></textarea>
+                            </p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <br>
+    `;
     document.querySelector('.plans').appendChild(planDiv);
 }
 
