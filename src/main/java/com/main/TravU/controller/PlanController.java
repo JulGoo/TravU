@@ -66,6 +66,8 @@ public class PlanController {
         PlanCardDTO planCardDTO = service.getPlanCard(planNo);
         model.addAttribute("planCardDTO", planCardDTO);
 
+
+
         return "plan_make";
     }
 
