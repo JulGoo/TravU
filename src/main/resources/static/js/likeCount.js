@@ -27,7 +27,7 @@ function likeAction() {
 			console.log("error : " + error);
 		}
 	});
-};
+}
 
 
 function likeDown() {
@@ -48,6 +48,6 @@ function likeDown() {
 			console.log("error : " + error);
 		}
 	});
-};
+}
 
 
